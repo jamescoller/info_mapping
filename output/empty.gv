@@ -1,0 +1,20 @@
+// Roomba Empty Function
+digraph {
+	empty [label="Empty Dirt" shape=box]
+	full [label="Sense if Full"]
+	fill [label="Fill Sensor"]
+	logic [label="Logic Processor"]
+	alert [label="Alert User"]
+	light [label="Activate Light"]
+	board [label="Light on Circuit Board"]
+	emptied [label="Get Emptied"]
+	remove [label="Allow Tray Removal"]
+	empty -> full
+	full -> fill
+	empty -> logic
+	empty -> alert
+	alert -> light
+	light -> board
+	empty -> emptied
+	emptied -> remove
+}

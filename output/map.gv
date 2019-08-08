@@ -1,0 +1,67 @@
+// Roomba Info Map
+digraph {
+	ir [label="IR Sensors" color=deepskyblue shape=box style=filled]
+	drop [label="Wheel Drop Sensor" color=deepskyblue shape=box style=filled]
+	l_bumper [label="Left Bumper" color=deepskyblue shape=box style=filled]
+	r_bumper [label="Right Bumper" color=deepskyblue shape=box style=filled]
+	dust_sensor [label="Dust Sensor" color=deepskyblue shape=box style=filled]
+	fill_sensor [label="Fill Sensor" color=deepskyblue shape=box style=filled]
+	top_ir [label="Top IR Receiver" color=deepskyblue shape=box style=filled]
+	ir_driver [label="IR I/O Driver"]
+	img_database [label="Image Database"]
+	img_recog [label="Image Recognition"]
+	vslam [label=vSLAM]
+	path_plan [label="Path Planning"]
+	motor_control [label="Motor Controller"]
+	drop_logic [label="Drop Sensor Logic Code"]
+	drop_driver [label="Drop I/O Driver"]
+	bump_driver [label="Bumper Driver"]
+	bump_logic [label="Bump Direction Logic"]
+	dust_driver [label="Dust Sensor Driver"]
+	fill_driver [label="Fill Sensor Driver"]
+	dust_logic [label="Dust Collection Logic"]
+	fill_logic [label="Full Bin Logic"]
+	user_io [label="User Interface Code"]
+	bounds [label="Boundary and Docking Logic"]
+	vac_io [label="Vac Motor Driver"]
+	pwr_node [label="Power Unit Driver"]
+	l_motor [label="Left Motor" color=coral1 shape=diamond style=filled]
+	r_motor [label="Right Motor" color=coral1 shape=diamond style=filled]
+	vac_motor [label="Vacuum Motor" color=coral1 shape=diamond style=filled]
+	ui [label="User Interface Hardware" color=coral1 shape=diamond style=filled]
+	power [label=Power color=coral1 shape=diamond style=filled]
+	ir -> ir_driver
+	ir_driver -> img_database
+	ir_driver -> img_recog
+	ir_driver -> vslam
+	img_database -> path_plan
+	img_recog -> path_plan
+	vslam -> path_plan
+	path_plan -> motor_control
+	motor_control -> l_motor
+	motor_control -> r_motor
+	drop -> drop_driver
+	drop_driver -> drop_logic
+	drop_logic -> motor_control
+	l_bumper -> bump_driver
+	r_bumper -> bump_driver
+	bump_driver -> bump_logic
+	bump_logic -> path_plan
+	dust_sensor -> dust_driver
+	dust_driver -> dust_logic
+	dust_logic -> path_plan
+	fill_sensor -> fill_driver
+	fill_driver -> fill_logic
+	fill_logic -> user_io
+	user_io -> ui
+	fill_logic -> vac_io
+	vac_io -> vac_motor
+	fill_logic -> path_plan
+	top_ir -> ir_driver
+	ir_driver -> bounds
+	bounds -> pwr_node
+	pwr_node -> power
+	bounds -> vac_io
+	bounds -> path_plan
+	bounds -> user_io
+}

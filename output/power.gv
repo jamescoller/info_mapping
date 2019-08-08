@@ -1,0 +1,24 @@
+// Roomba Power Function
+digraph {
+	pwr [label="Power Supply" shape=box]
+	src [label="Store Energy"]
+	bat [label=Battery]
+	li [label="Lithium Battery"]
+	charge [label="Recharge Energy"]
+	charger [label="Battery Charger"]
+	leads [label="Battery Leads"]
+	dock [label="Home Dock Charging"]
+	dist [label="Distribute Electricity"]
+	circuit [label="Circuit Board"]
+	wires [label=Wiring]
+	pwr -> src
+	src -> bat
+	bat -> li
+	pwr -> charge
+	charge -> charger
+	charger -> leads
+	charger -> dock
+	pwr -> dist
+	dist -> circuit
+	dist -> wires
+}

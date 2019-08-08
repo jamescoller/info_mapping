@@ -1,0 +1,32 @@
+// Roomba Cleaning Function
+digraph {
+	clean [label="Clean Floors" shape=box]
+	vacuum [label=Vacuum]
+	control [label="Control Vac Motor"]
+	motor [label="Vac Motor"]
+	intake [label="Vac Intake"]
+	exh [label="Vac Exhaust"]
+	scrape [label="Scrape up Dirt & Debris"]
+	rollers [label=Rollers]
+	notangle [label="Do Not Tangle"]
+	torque [label="Torque Sensor"]
+	contain [label="Contain Dirt"]
+	filter [label="Air Filter"]
+	unit [label="Containment Bin"]
+	corners [label="Clean Along Walls & Corners"]
+	brush [label="Sweeping Brush"]
+	clean -> vacuum
+	vacuum -> control
+	vacuum -> motor
+	vacuum -> intake
+	vacuum -> exh
+	clean -> scrape
+	scrape -> rollers
+	scrape -> notangle
+	notangle -> torque
+	clean -> contain
+	contain -> filter
+	contain -> unit
+	clean -> corners
+	corners -> brush
+}

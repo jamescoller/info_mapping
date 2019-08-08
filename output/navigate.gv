@@ -1,0 +1,118 @@
+// Roomba Navigate Function
+digraph {
+	nav [label=Navigate shape=box]
+	on_dirt [label="Stay on Dirty Area"]
+	is_dirt [label="Check for Dirt"]
+	cover_room [label="Cover Full Room"]
+	avoid [label="Avoid Obstacles"]
+	rcon [label="Robot Confinement"]
+	map [label=Mapping]
+	home [label="Find \"Home\""]
+	pizo [label="Pizoelectric Sensor"]
+	"dirt-circuit" [label="Sensor Circuit"]
+	power [label="Power Source"]
+	"dirt-logic" [label="Logic Processor"]
+	motor_control [label="Motor Control"]
+	cover_logic [label="Logic Processor"]
+	pose [label="Pose Estimation"]
+	wheel_enc [label="Wheel Encoders"]
+	frnt_track [label="Front Wheel Tracking"]
+	bumper [label=Bumpers]
+	"bump-trigger" [label=Trigger]
+	"bump-spring" [label=Spring]
+	"no-fall" [label="Do Not Fall Down"]
+	ir [label="IR Sensors"]
+	wheel_drop [label="Wheel Drop Sensor"]
+	"fall-logic" [label="Logic Processor"]
+	"ir-send" [label="IR Transmitter"]
+	"ir-rec" [label="IR Receiver"]
+	"drop-trigger" [label=Trigger]
+	"drop-spring" [label=Spring]
+	"see-wall" [label="ID Walls"]
+	"avoid-logic" [label="Logic Processor"]
+	lighthouse [label="Lighthouse Transmit Signal"]
+	lh_pwr [label="Variable Power Knob"]
+	lh_ir_trans [label="IR Transmitter"]
+	lh_pwr_src [label="Power Source"]
+	bat [label=Battery]
+	rbt [label="Robot Receive Signal"]
+	"rbt-rec" [label="IR Receiver"]
+	"rbt-logic" [label="Logic Processor"]
+	dead [label="Dead Reckoning"]
+	prior [label="Prior Positions"]
+	current [label="Current Position"]
+	odom [label=Odometry]
+	vis [label="Visual Sensing"]
+	vis_front_end [label="Locate Image in Database"]
+	img [label="Image Data"]
+	database [label="Landmark Database"]
+	slam [label=SLAM]
+	"slam-data" [label=Data]
+	"slam-base" [label="SLAM Database"]
+	"map-logic" [label="Logic Processing"]
+	"home-logic" [label="Logic Processing"]
+	"home-sig" [label="Recieve Home Signal"]
+	"home-ir" [label="Top IR Receiver"]
+	nav -> on_dirt
+	nav -> cover_room
+	nav -> avoid
+	nav -> rcon
+	nav -> map
+	nav -> home
+	on_dirt -> is_dirt
+	is_dirt -> pizo
+	pizo -> "dirt-circuit"
+	pizo -> power
+	on_dirt -> "dirt-logic"
+	on_dirt -> motor_control
+	cover_room -> cover_logic
+	cover_room -> map
+	cover_room -> pose
+	pose -> wheel_enc
+	pose -> frnt_track
+	cover_room -> motor_control
+	avoid -> map
+	avoid -> bumper
+	bumper -> "bump-trigger"
+	bumper -> "bump-spring"
+	avoid -> "no-fall"
+	"no-fall" -> ir
+	"no-fall" -> wheel_drop
+	wheel_drop -> "drop-trigger"
+	wheel_drop -> "drop-spring"
+	"no-fall" -> "fall-logic"
+	ir -> "ir-send"
+	ir -> "ir-rec"
+	avoid -> "see-wall"
+	"see-wall" -> ir
+	avoid -> "avoid-logic"
+	rcon -> lighthouse
+	lighthouse -> lh_pwr
+	lighthouse -> lh_ir_trans
+	lighthouse -> lh_pwr_src
+	lh_pwr_src -> bat
+	rcon -> rbt
+	rbt -> "rbt-rec"
+	rbt -> "rbt-logic"
+	rbt -> motor_control
+	map -> dead
+	dead -> prior
+	dead -> current
+	current -> pose
+	current -> odom
+	odom -> wheel_enc
+	map -> vis
+	vis -> ir
+	map -> vis_front_end
+	vis_front_end -> img
+	vis_front_end -> database
+	map -> slam
+	slam -> "slam-data"
+	slam -> "slam-base"
+	map -> "map-logic"
+	home -> "home-logic"
+	home -> motor_control
+	home -> "home-sig"
+	"home-sig" -> "home-ir"
+	home -> map
+}

@@ -1,0 +1,29 @@
+Id,Label,timeset,Layer,splitter_z_value
+0,Roomba,,Top,1
+1,Drive,,Primary,2
+2,Navigate,,Primary,2
+3,Power Supply,,Primary,2
+4,Clean Floors,,Primary,2
+5,Empty Dirt,,Primary,2
+6,Vacuum,,Secondary,3
+7,Scrape Dirt,,Secondary,3
+8,Contain Dirt,,Secondary,3
+9,Clean Along Walls,,Secondary,3
+10,Determine if Full,,Secondary,3
+11,Alert User,,Secondary,3
+12,Get Emptied,,Secondary,3
+13,Store Energy,,Secondary,3
+14,Recharge Energy,,Secondary,3
+15,Distribute Energy,,Secondary,3
+16,Move Forward,,Secondary,3
+17,Move Backward,,Secondary,3
+18,Turn,,Secondary,3
+19,Don't Get Stuck,,Secondary,3
+20,Drive on Ground Only,,Secondary,3
+21,Don't Fall,,Secondary,3
+22,Stay on Dirty Area,,Secondary,3
+23,Cover Full Room,,Secondary,3
+24,Find Home,,Secondary,3
+25,Mapping,,Secondary,3
+26,Avoid Obstacles,,Secondary,3
+27,Robot Confinement,,Secondary,3

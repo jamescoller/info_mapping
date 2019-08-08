@@ -1,0 +1,14 @@
+// Roomba Overall Functions
+digraph {
+	roomba [label=Roomba shape=hexagon]
+	drive [label=Drive shape=box]
+	nav [label=Navigate shape=box]
+	charge [label=Recharge shape=box]
+	vacuum [label="Clean Floors" shape=box]
+	empty [label="Empty Dirt" shape=box]
+	roomba -> drive
+	roomba -> nav
+	roomba -> charge
+	roomba -> vacuum
+	roomba -> empty
+}

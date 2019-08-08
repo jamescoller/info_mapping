@@ -1,0 +1,62 @@
+// Roomba Drive Function
+digraph {
+	drive [label=Drive shape=box]
+	fwd [label="Move Forward"]
+	back [label="Move Backard"]
+	turn [label="Turn Left or Right"]
+	nostuck [label="Do Not Get Stuck"]
+	nocliff [label="Do Not Fall Off Cliff"]
+	onGround [label="Drive on Ground Only"]
+	spinL [label="Spin Left Wheel"]
+	spinR [label="Spin Right Wheel"]
+	act_motor [label="Activate Motor"]
+	motor_control [label="Motor Controller Signal"]
+	nav_cmd [label="Navigation Command"]
+	wheels_move [label="Ensure Wheels are Moving"]
+	not_wall [label="Ensure Not on Wall"]
+	Bump [label="Bump Sensor"]
+	trigger [label="Bump Trigger"]
+	spring [label="Bump Spring"]
+	enconder [label="Wheel Encoders"]
+	logic [label="Logic Processor"]
+	wheel_drop [label="Wheel Drop Sensor"]
+	wh_trigger [label=Trigger]
+	wh_spring [label=Spring]
+	IR [label="IR Sensor"]
+	ir_trans [label=Transmitter]
+	ir_rec [label=Receiver]
+	cliff_logic [label="Logic Processor"]
+	ground_logic [label="Logic Processor"]
+	drive -> fwd
+	drive -> back
+	drive -> turn
+	drive -> nostuck
+	drive -> nocliff
+	drive -> onGround
+	fwd -> spinL
+	fwd -> spinR
+	back -> spinL
+	back -> spinR
+	turn -> spinR
+	turn -> spinL
+	spinL -> act_motor
+	spinR -> act_motor
+	act_motor -> motor_control
+	motor_control -> nav_cmd
+	nostuck -> wheels_move
+	nostuck -> not_wall
+	wheels_move -> enconder
+	nostuck -> logic
+	not_wall -> Bump
+	Bump -> trigger
+	Bump -> spring
+	nocliff -> wheel_drop
+	wheel_drop -> wh_spring
+	wheel_drop -> wh_trigger
+	nocliff -> IR
+	IR -> ir_rec
+	IR -> ir_trans
+	nocliff -> cliff_logic
+	onGround -> wheel_drop
+	onGround -> ground_logic
+}
